@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FakeStore.Pages.AddNewProductPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Agregar Productos Nuevos">
+
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="20">
+
+            <Label
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="Agrega Un Producto Nuevo"
+                TextColor="#333"
+                FontAttributes="Bold" />
+
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="20" HasShadow="True">
+                <StackLayout Spacing="15">
+
+                    <Label FontAttributes="Bold" Text="Título" TextColor="#333" />
+                    <Entry x:Name="ProductTitleEntry" Placeholder="Ingresa el título del producto" FontSize="18" />
+
+                    <Label FontAttributes="Bold" Text="Precio" TextColor="#333" />
+                    <Entry
+                        x:Name="ProductPriceEntry"
+                        Keyboard="Numeric"
+                        Placeholder="Ingresa el valor"
+                        FontSize="18" />
+
+                    <Label FontAttributes="Bold" Text="Descripción" TextColor="#333" />
+                    <Editor
+                        x:Name="ProductDescriptionEntry"
+                        HeightRequest="100"
+                        Placeholder="Ingresa la descripción"
+                        FontSize="18" />
+
+                    <Label FontAttributes="Bold" Text="URL de la imagen" TextColor="#333" />
+                    <Entry x:Name="ProductImageEntry" Placeholder="Ingrese la URL de la imagen" FontSize="18" />
+
+                    <Label FontAttributes="Bold" Text="Categoría" TextColor="#333" />
+                    <Picker x:Name="ProductCategoryPicker" FontSize="18">
+                        <Picker.ItemsSource>
+                            <x:Array Type="{x:Type x:String}">
+                                <x:String>Prendas de Hombre</x:String>
+                                <x:String>Prendas de Mujer</x:String>
+                                <x:String>Electronicos</x:String>
+                                <x:String>Joyería</x:String>
+                            </x:Array>
+                        </Picker.ItemsSource>
+                    </Picker>
+
+                </StackLayout>
+            </Frame>
+
+            <Button
+                BackgroundColor="#27AE60"
+                Clicked="OnAddProductClicked"
+                Text="Agrega el Producto"
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="10"
+                Padding="10,5" />
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

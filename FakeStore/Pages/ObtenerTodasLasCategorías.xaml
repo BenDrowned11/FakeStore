@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FakeStore.Pages.GetAllCategoriesPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Obtener todas las categorías disponibles"
+    BackgroundColor="#2C3E50">
+
+    <StackLayout Padding="20" Spacing="20">
+
+        <Label
+            Text="Categorías Disponibles"
+            FontSize="24"
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            TextColor="#FF69B4"/>
+
+        <Frame
+            BorderColor="#CCCCCC"
+            CornerRadius="10"
+            Padding="10"
+            HasShadow="True">
+            <Picker
+                x:Name="CategoryPicker"
+                Title="Selecciona una categoría"
+                SelectedIndexChanged="OnCategorySelectedIndexChanged" />
+        </Frame>
+
+        <Button
+            Text="Obtener Productos"
+            BackgroundColor="#27AE60"
+            TextColor="White"
+            FontAttributes="Bold"
+            CornerRadius="10"
+            Padding="10"
+            HorizontalOptions="FillAndExpand"
+            Clicked="OnGetProductsClicked" />
+
+        <CollectionView x:Name="ProductsCollectionView">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="10" />
+            </CollectionView.ItemsLayout>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame
+                        BorderColor="#D6EAF8"
+                        CornerRadius="12"
+                        Padding="10"
+                        HasShadow="True"
+                        BackgroundColor="White">
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Image
+                                HeightRequest="50"
+                                WidthRequest="50"
+                                Aspect="AspectFill"
+                                Source="{Binding image}"
+                                VerticalOptions="Center" />
+                            <StackLayout VerticalOptions="Center">
+                                <Label
+                                    Text="{Binding title}"
+                                    FontSize="16"
+                                    FontAttributes="Bold"
+                                    TextColor="#5D6D7E" />
+                                <Label
+                                    Text="{Binding price, StringFormat='Precio: {0:C}'}"
+                                    FontSize="14"
+                                    TextColor="Green" />
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </StackLayout>
+</ContentPage>

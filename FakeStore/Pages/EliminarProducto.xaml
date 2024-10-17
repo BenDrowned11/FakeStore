@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FakeStore.Pages.DeleteProductPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Elimina Productos">
+
+    <ScrollView>
+        <StackLayout Padding="30" Spacing="25">
+
+            <Label
+                FontSize="32"
+                HorizontalOptions="Center"
+                Text="Eliminar Producto"
+                TextColor="#333"
+                FontAttributes="Bold" />
+
+            <Frame BorderColor="#cccccc" CornerRadius="10" Padding="20" HasShadow="True">
+                <StackLayout>
+                    <Label 
+                        Text="ID del Producto:" 
+                        FontSize="18" 
+                        TextColor="#333"
+                        VerticalOptions="Center" />
+
+                    <Entry
+                        x:Name="IdEntry"
+                        Keyboard="Numeric"
+                        Placeholder="Ingrese el ID del producto"
+                        FontSize="18"
+                        VerticalOptions="Center" />
+                </StackLayout>
+            </Frame>
+
+            <Button 
+                Clicked="OnDeleteProductClicked" 
+                Text="Eliminar Producto" 
+                BackgroundColor="#ff6347"
+                TextColor="White"
+                FontAttributes="Bold"
+                CornerRadius="10"
+                Padding="10,5" />
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

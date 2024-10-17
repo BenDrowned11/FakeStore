@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="FakeStore.Pages.ProductListPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Lista de todos los Productos"
+    BackgroundColor="#F5F5F5">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="20">
+            <Frame BackgroundColor="#FFFFFF" CornerRadius="10" HasShadow="True" Padding="10">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="32"
+                    HorizontalOptions="Center"
+                    Text="Todos Los Productos Disponibles"
+                    TextColor="#34495E" />
+            </Frame>
+
+            <CollectionView x:Name="ProductsCollection">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" Span="2" />
+                </CollectionView.ItemsLayout>
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame 
+                            BorderColor="#D6EAF8" 
+                            CornerRadius="12" 
+                            Padding="15" 
+                            HasShadow="True" 
+                            BackgroundColor="White" 
+                            Margin="10">
+                            <StackLayout Orientation="Vertical" Spacing="10" HorizontalOptions="Center">
+
+                                <Image
+                                    HeightRequest="150"
+                                    WidthRequest="150"
+                                    Aspect="AspectFit"
+                                    HorizontalOptions="Center"
+                                    Source="{Binding image}" />
+
+                                <Label
+                                    FontAttributes="Bold"
+                                    FontSize="Medium"
+                                    Text="{Binding title}"
+                                    TextColor="#5D6D7E"
+                                    HorizontalTextAlignment="Center"
+                                    MaxLines="1" />
+
+                                <Label
+                                    FontSize="Small"
+                                    Text="{Binding category}"
+                                    TextColor="#AAB7B8"
+                                    HorizontalTextAlignment="Center" />
+
+                                <Label
+                                    FontSize="Medium"
+                                    Text="{Binding price, StringFormat='Precio: {0:C}'}"
+                                    TextColor="#82E0AA"
+                                    FontAttributes="Bold"
+                                    HorizontalTextAlignment="Center" />
+
+                                <Button
+                                    BackgroundColor="#FF69B4"
+                                    TextColor="White"
+                                    CornerRadius="10"
+                                    Clicked="OnViewDetailsClicked"
+                                    CommandParameter="{Binding .}"
+                                    Text="Ver Más Info"
+                                    HeightRequest="40"
+                                    WidthRequest="200"
+                                    HorizontalOptions="Center"
+                                    FontSize="Medium" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
